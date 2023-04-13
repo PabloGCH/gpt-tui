@@ -1,18 +1,24 @@
-
-
+//CHATGPT EXAMPLE
 /*
-//GETTING KEY FROM ARGUMENTS AND ASKING FOR PROMPTS
-fn main() {
-    //GETS THE OPEN AI KEY FROM THE COMMAND LINE
-    //let open_ai_key :String = std::env::args().nth(1).unwrap();
-    //CREATES A NEW OPEN AI CLIENT
-    //let client = openai::Client::new(open_ai_key);
-    println!("ENTER A PROMPT: ");
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).unwrap();
-    println!("RESPONSE: {}", input);
+use chatgpt::prelude::*;
+use chatgpt::types::*;
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    // Getting the API key here
+    let key = std::env::args().nth(1).unwrap_or("".to_string());
+    println!("Key: {}", key);
+    let client = ChatGPT::new(key)?;
+    let response: CompletionResponse = client
+        .send_message("Name 5 blue things")
+        .await?;
+    println!("Response: ");
+    println!("{}", response.message().content);
+    Ok(())
 }
 */
+
+
 
 
 //SYNTAX HIGHLIGHT TEST

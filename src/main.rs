@@ -1,18 +1,35 @@
+use std::env::args;
 use chatgpt::prelude::*;
-use chatgpt::types::*;
+use futures::stream::{self, StreamExt};
+use futures_util::StreamExt;
+use std::io::{stdout, Write};
 
+/// Requires the `streams` crate feature
 #[tokio::main]
 async fn main() -> Result<()> {
-    // Getting the API key here
-    let key = std::env::args().nth(1).unwrap_or("".to_string());
-    println!("Key: {}", key);
+    // Creating a client
+    let key = args().nth(1).unwrap();
     let client = ChatGPT::new(key)?;
-    let response: CompletionResponse = client
-        .send_message("Name 5 blue things")
+    let stream = client
+        .send_message_streaming("Could you name me a few popular Rust backend server frameworks?")
         .await?;
-    println!("Response: ");
-    println!("{}", response.message().content);
-    Ok(())
+
+    // Iterating over stream contents
+    stream
+        .for_each(|each| async move {
+            match each {
+                ResponseChunk::Content {
+                    delta,
+                    response_index: _,
+                } => {
+                    // Printing part of response without the newline
+                    print!("{delta}");
+                    // Manually flushing the standard output, as `print` macro does not do that
+                    stdout().lock().flush().unwrap();
+                }
+                _ => {}
+            }
+        })
+    .await;
+    ok(())
 }
-
-
