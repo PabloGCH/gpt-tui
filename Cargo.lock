@@ -121,9 +121,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chatgpt_rs"
-version = "1.1.1"
+version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1dc65ebb4c722c0a56df68736c8d0cd2acf794078004572cb6ea46450dd58715"
+checksum = "6eeaf61e70e8eca2ad0c78dfe441eb481035d8c9dcc04ac81aa4527a007d5709"
 dependencies = [
  "chrono",
  "derive_builder",
