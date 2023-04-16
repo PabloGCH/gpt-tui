@@ -6,12 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# HIGLIGHTING
 syntect = "5.0.0"
 termimad = "0.23.0"
-
+crossterm = "0.26.1"
+# ASYNC
 futures-util = "0.3.28"
-tokio = { version = "1", features = ["full"] }
 mini-redis = "0.4"
-futures = "0.3.28"
-reqwest = "0.11.16"
+tokio = { version = "1", features = ["full"] }
+# CHATGPT
 chatgpt_rs = { version = "1.1.2", features = ["streams"] }
