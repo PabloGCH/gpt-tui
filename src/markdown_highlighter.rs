@@ -25,8 +25,10 @@ pub fn parse_markdown(text: &str) -> String {
         let theme_set = ThemeSet::load_defaults();
         //TRIES TO GET THE SYNTAX
         let lang = code.split("\n").next().unwrap_or("none");
+        //REMOVES THE LANGUAGE FROM THE CODE
+        let code = code[lang.len()..].to_string();
         //SETS THE SYNTAX
-        let syntax = syntax_set.find_syntax_by_name(lang).unwrap_or_else(|| syntax_set.find_syntax_plain_text());
+        let syntax = syntax_set.find_syntax_by_extension(get_lang_extension(lang)).unwrap_or(syntax_set.find_syntax_plain_text());
         //SETS THE HIGHLIGHTER
         let mut highlight = HighlightLines::new(syntax, &theme_set.themes["base16-eighties.dark"]);
         //HIGHLIGHTS THE CODE
@@ -55,13 +57,26 @@ pub fn parse_markdown(text: &str) -> String {
 }
 
 
-/*
-   let _v = text.split("```");
-   let mut _i = 0;
-   for st in _v {
-   new_text.push_str(&st);
-   let debug = "\nSTRING INDEX: ".to_string() + &_i.to_string() + "\n";
-   new_text.push_str(&debug);
-   _i += 1;
-   }
-   */
+fn get_lang_extension(lang_name :&str) -> &str {
+    let trimed_lang_name = lang_name.replace("\n", "").replace("\t", "").trim().to_string();
+    if trimed_lang_name == "javascript" {
+        return "js";
+    }
+    if trimed_lang_name == "rust" {
+        return "rs";
+    }
+    if trimed_lang_name == "c" {
+        return "c";
+    }
+    if trimed_lang_name == "cpp" {
+        return "cpp";
+    }
+    if trimed_lang_name == "csharp" {
+        return "cs";
+    }
+    if trimed_lang_name == "python" {
+        return "py";
+    }
+    return "txt";
+}
+
