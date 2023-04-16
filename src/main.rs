@@ -75,7 +75,8 @@ async fn main() -> Result<()> {
             stdout(),
             Print("\nENTER PROMPT: \n")
             ).unwrap();
-        std::io::stdin().read_line(&mut input).unwrap();
+        std::io::stdin().read_line(&mut input)
+            .unwrap();
         if input.trim() == "gpt exit" {
             go_on = false;
         } else {
