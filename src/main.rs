@@ -56,7 +56,8 @@ async fn get_response(query :String, client: ChatGPT) {
 #[tokio::main]
 async fn main() -> Result<()> {
     // Creating a client
-    let key = args().nth(1).unwrap();
+    //let key = args().nth(1).unwrap();
+    let key = std::env!("OPENAI_KEY");
     let client = ChatGPT::new(key)?;
     let colums = size().unwrap().0;
     let _initial_space = "\n".repeat(colums as usize);
