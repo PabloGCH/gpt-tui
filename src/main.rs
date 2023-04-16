@@ -4,6 +4,9 @@ use crossterm::{
     terminal::{
         SetSize,
         size,
+        ScrollUp,
+        ScrollDown,
+        EnableLineWrap,
         Clear,
         ClearType, EnterAlternateScreen
     },
@@ -46,7 +49,7 @@ async fn get_response(query :String, client: ChatGPT) {
     })
     .await;
     unsafe {
-        BUFFER.push_str("\n");
+        BUFFER.push_str("\n\n");
     }
 }
 
@@ -55,16 +58,21 @@ async fn main() -> Result<()> {
     // Creating a client
     let key = args().nth(1).unwrap();
     let client = ChatGPT::new(key)?;
+    let colums = size().unwrap().0;
+    let _initial_space = "\n".repeat(colums as usize);
     execute!(
         stdout(),
-        EnterAlternateScreen
+        EnterAlternateScreen,
+        EnableLineWrap,
+        Print(_initial_space),
+        Clear(ClearType::All),
         ).unwrap();
     let mut go_on = true;
     while go_on {
         let mut input = String::new();
         execute!(
             stdout(),
-            Print("\nENTER PROMPT: ")
+            Print("\nENTER PROMPT: \n")
             ).unwrap();
         std::io::stdin().read_line(&mut input).unwrap();
         if input.trim() == "gpt exit" {

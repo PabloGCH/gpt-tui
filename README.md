@@ -5,27 +5,11 @@ A TUI for CHATGPT writen in rust i am making to learn and practice the use of th
 TODO
 ==============================
 
-PROTOTYPE REQUIREMENTS
---------------------------
+- [ ] Use conversation.
+- [ ] Parse and color code blocks in responses.
+- [ ] Add insert and visual mode (Controled with vim keys).
+- [ ] Allow to move the cursor in the input box.
+- [ ] Refactor the code.
 
-- GET CHATGPT RESPONSES. (DONE)
-- HIGHLIGHT CODE SNIPPETS DONE. (DONE)
-    - COLOR BACKGROUND. (DONE)
-
-
-- GET STREAMING RESPONSES FROM CHATGPT.
-- PARSE RESPONSES
-    - FILL LINES WITH SPACES TO FILL TERMINAL WIDTH.
-    - CHECK FOR CODE BLOCKS AND PRINT THEM WITH HIGHLIGHT.
-        - DETECT LANGUAGE
-        - REMOVE INVERTED BACKTICKS AND LANGUAGE
-
-
-BRAIN STORM SECTION
---------------------------
-
-- A SINGLE VARIABLE HOLDING ALL TEXT ? (SINCE OLD TEXT IS NOT GOING TO BE RE PRINTED).
-- DETECT TERMINAL RESIZE AND RE PRINT TEXT VARIABLE
-- I SHOULD CHECK HOW THE 
 
 
