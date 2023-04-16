@@ -1,4 +1,9 @@
-DESCRIPTION
+Showcase
+==============================
+
+https://user-images.githubusercontent.com/75398666/232347387-cb92848b-11ac-475b-a4c9-0ce6cddb2f04.mp4
+
+Description
 ==============================
 
 A TUI for CHATGPT writen in rust i am making to learn and practice the use of the rust language.
@@ -7,7 +12,7 @@ better way, or if you have a feature request.
 Since this is a learning project i will not be accepting pull requests, because i want to do add
 features and refactor the code myself.
 
-USAGE
+Usage
 ==============================
 
 - Clone the repo.
@@ -16,7 +21,7 @@ USAGE
 if you build it you can drop the binary in your bin folder and run it from anywhere
 
 
-KNOWN ISSUES
+Known issues
 ==============================
 
 - The syntax highlighting and background for the code will sometimes not work.
@@ -24,7 +29,7 @@ This is because currently the application needs the code in the response to be i
 to know that it is code and not just text to set the background. And the language needs to be specified
 to know what syntax to use.
 
-TODO
+Todo
 ==============================
 
 - [x] Parse and color code blocks in responses.
