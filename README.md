@@ -16,16 +16,30 @@ USAGE
 if you build it you can drop the binary in your bin folder and run it from anywhere
 
 
+KNOWN ISSUES
+==============================
+
+- The syntax highlighting and background for the code will sometimes not work.
+This is because currently the application needs the code in the response to be in a markdown code block,
+to know that it is code and not just text to set the background. And the language needs to be specified
+to know what syntax to use.
+
 TODO
 ==============================
 
-- [ ] Add support for conversations (At least one for now).
 - [x] Parse and color code blocks in responses.
+- [ ] Add support for conversations (At least one for now).
+- [ ] Add support for vertical scrolling.
 - [ ] Add insert and visual mode (Controled with vim keys).
 - [ ] Allow to move the cursor in the input box.
 - [ ] Refactor the code.
 - [ ] Add a config file to set syntect theme and openai key;
 - [ ] Add support for multiple conversations.
+    - [ ] Add command to remove conversations.
+    - [ ] Add commands to switch between conversations.
+    - [ ] Add a command to create a new conversation.
+
+
 
 
 
