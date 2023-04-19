@@ -610,6 +610,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "gpt-tui"
+version = "0.1.0"
+dependencies = [
+ "chatgpt_rs",
+ "crossterm 0.26.1",
+ "futures-util",
+ "mini-redis",
+ "syntect",
+ "termimad",
+ "tokio",
+]
+
+[[package]]
 name = "h2"
 version = "0.3.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1616,19 +1629,6 @@ dependencies = [
  "minimad",
  "thiserror",
  "unicode-width",
-]
-
-[[package]]
-name = "test-cli"
-version = "0.1.0"
-dependencies = [
- "chatgpt_rs",
- "crossterm 0.26.1",
- "futures-util",
- "mini-redis",
- "syntect",
- "termimad",
- "tokio",
 ]
 
 [[package]]

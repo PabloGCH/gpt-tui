@@ -33,11 +33,12 @@ Todo
 ==============================
 
 - [x] Parse and color code blocks in responses.
-- [ ] Add support for conversations (At least one for now).
+- [x] Add support for conversations (At least one for now).
 - [ ] Add support for vertical scrolling.
 - [ ] Add insert and visual mode (Controled with vim keys).
 - [ ] Allow to move the cursor in the input box.
 - [ ] Refactor the code.
+    - [ ] Parse the new incoming messages instead of the entire buffer.
 - [ ] Add a config file to set syntect theme and openai key;
 - [ ] Add support for multiple conversations.
     - [ ] Add command to remove conversations.
