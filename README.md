@@ -34,8 +34,7 @@ Todo
 
 - [x] Parse and color code blocks in responses.
 - [x] Add support for conversations (At least one for now).
-- [ ] Add support for vertical scrolling.
-- [ ] Add insert and visual mode (Controled with vim keys).
+- [ ] Add support for vertical scrolling. (<C-u> and <C-d>).
 - [ ] Allow to move the cursor in the input box.
 - [ ] Refactor the code.
     - [ ] Parse the new incoming messages instead of the entire buffer.
@@ -44,6 +43,15 @@ Todo
     - [ ] Add command to remove conversations.
     - [ ] Add commands to switch between conversations.
     - [ ] Add a command to create a new conversation.
+- [ ] Add insert and visual mode (Controled with vim keys, only directional ones for now).
+- [ ] Add more vim like commands.
+    - [ ] move to the end of the line.
+    - [ ] move to the start of the line.
+    - [ ] move to the end of the buffer.
+    - [ ] move to the start of the buffer.
+    - [ ] move to the end of the word.
+    - [ ] move to the start of the word.
+
 
 
 

@@ -65,6 +65,9 @@ fn get_lang_extension(lang_name :&str) -> &str {
     if trimed_lang_name == "rust" {
         return "rs";
     }
+    if trimed_lang_name == "java" {
+        return "java";
+    }
     if trimed_lang_name == "c" {
         return "c";
     }

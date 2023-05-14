@@ -17,6 +17,7 @@ use crossterm::{
 use futures_util::StreamExt;
 use std::io::{stdout, Write};
 mod markdown_highlighter;
+mod input_manager;
 
 
 static mut BUFFER: String = String::new();
@@ -76,6 +77,7 @@ async fn main() -> Result<()> {
     let mut conversation = client.new_conversation();
     let colums = size().unwrap().0;
     let _initial_space = "\n".repeat(colums as usize);
+/*
     execute!(
         stdout(),
         EnterAlternateScreen,
@@ -83,7 +85,17 @@ async fn main() -> Result<()> {
         Print(_initial_space),
         Clear(ClearType::All),
         ).unwrap();
+*/
     let mut go_on = true;
+    
+    tokio::spawn(async move {
+        input_manager::catch_events();
+    });
+
+    while go_on {
+
+    }
+    /*
     while go_on {
         let mut input = String::new();
         execute!(
@@ -103,6 +115,7 @@ async fn main() -> Result<()> {
             get_response(input, &mut conversation).await;
         }
     }
+    */
     Ok(())
 }
 
